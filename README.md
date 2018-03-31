@@ -21,7 +21,7 @@
 所需的包：jstl的包外还需要导入standard.jar否则不起作用
 
 ```
-####jquery ajax
+#### jquery ajax
   http://www.w3school.com.cn/jquery/jquery_ajax_get_post.asp
   ```
 <script type="text/javascript">
