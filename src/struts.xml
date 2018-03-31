@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+ <struts>
+
+ 	<include file="struts2.xml"/>
+    <!-- 定义常量 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+  	<package name="default" extends="struts-default" namespace="/">
+		<action name="personAction" class="com.wby.action.PersonAction">
+
+		</action>
+		<action name="doBuyAction" class="com.wby.action.BuyAction">
+			<result name="success">/success.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		<action name="selectAction" class="com.wby.action.SelectAction" method="queryAll">
+			<result name="success">/result.jsp</result>
+
+		</action>
+ 	</package>
+ </struts>
