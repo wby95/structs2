@@ -10,7 +10,7 @@
    依赖包：commons-beanutils.jar&commons-collections.jar&commons-langs.jar&
    commons-logging.jar&ezmorph.jar
 ```
-#### 时间控件
+#### 日历控件
 ```
    <s:textfield  label="出发时间" name="gooff" id="gooff" cssClass="calendar" onClick="WdatePicker()" onblur="checkgooff(this.value)" />
    导入<script src="${pageContext.request.contextPath}/js/My97DatePicker/WdatePicker.js"></script>
@@ -77,5 +77,22 @@
         }
 
     </script>
+    
+    
+    public String execute() throws Exception {
+            JSONObject result = new JSONObject();
+            boolean flag = PersonDao.validatePerson(userName, gooff);
+            if (flag) {
+                System.out.println("true action");
+                result.put("exist", true);
+    
+            } else {
+                System.out.println("false action");
+                result.put("exist", false);
+            }
+            ResponseUtil.write(ServletActionContext.getResponse(), result);
+            return null;
+        }
+
 ```
 #### 
