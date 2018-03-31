@@ -11,7 +11,6 @@
     <script type="text/javascript">
         setTimeout("location.href='selectAction'", 3000);
     </script>
-
   </center>
   </body>
 </html>
