@@ -2,11 +2,7 @@ package com.wby.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.wby.dao.BuyDao;
-import com.wby.dao.PersonDao;
-import com.wby.entity.Person;
-import com.wby.util.ResponseUtil;
-import net.sf.json.JSONObject;
-import org.apache.struts2.ServletActionContext;
+import com.wby.entity.Booking;
 
 /**
  * Created by wby on 2018/3/30.
@@ -69,14 +65,14 @@ public class BuyAction extends ActionSupport {
 
 
     public String execute() throws Exception {
-        Person person=new Person();
-        person.setUserName(userName);
-        person.setSex(sex);
-        person.setStartCity(startCity);
-        person.setEndCity(endCity);
-        person.setGooff(gooff);
-        person.setUserId(userId);
-        boolean bln= BuyDao.buy(person);
+        Booking booking =new Booking();
+        booking.setUserName(userName);
+        booking.setSex(sex);
+        booking.setStartCity(startCity);
+        booking.setEndCity(endCity);
+        booking.setGooff(gooff);
+        booking.setUserId(userId);
+        boolean bln= BuyDao.buy(booking);
         return SUCCESS;
     }
 

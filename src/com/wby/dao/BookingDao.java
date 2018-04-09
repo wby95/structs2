@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by wby on 2018/3/30.
  */
-public class PersonDao {
+public class BookingDao {
     /**
      * 假设一人一天只能上一班飞机，验证该用户是否已经在该天买了票
      * @param username

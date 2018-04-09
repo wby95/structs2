@@ -13,10 +13,14 @@
 			<result name="success">/success.jsp</result>
 			<result name="input">/index.jsp</result>
 		</action>
-		<action name="personAction" class="com.wby.action.PersonAction">
+		<action name="personAction" class="com.wby.action.BookingAction">
 
 		</action>
 		<action name="doBuyAction" class="com.wby.action.BuyAction">
+			<!-- 自定义登录拦截器配置 -->
+			<interceptor-ref name="loginInterceptor"/>
+			<!-- 配置默认拦截器栈 -->
+			<interceptor-ref name="defaultStack"/>
 			<result name="success">/success.jsp</result>
 			<result name="input">/index.jsp</result>
 		</action>

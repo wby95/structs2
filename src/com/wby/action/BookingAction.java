@@ -1,29 +1,22 @@
-package com.wby.entity;
+package com.wby.action;
 
-import java.util.Date;
+import com.opensymphony.xwork2.ActionSupport;
+import com.wby.dao.BookingDao;
+import com.wby.util.ResponseUtil;
+
+import net.sf.json.JSONObject;
+import org.apache.struts2.ServletActionContext;
 
 /**
  * Created by wby on 2018/3/30.
  */
-public class Person {
+public class BookingAction extends ActionSupport {
     private String userName;
     private String sex;
     private String startCity;
     private String endCity;
     private String gooff;
     private String userId;
-
-    public Person() {
-    }
-
-    public Person(String userName, String sex, String startCity, String endCity, String gooff, String userId) {
-        this.userName = userName;
-        this.sex = sex;
-        this.startCity = startCity;
-        this.endCity = endCity;
-        this.gooff = gooff;
-        this.userId = userId;
-    }
 
     public String getUserName() {
         return userName;
@@ -72,4 +65,21 @@ public class Person {
     public void setUserId(String userId) {
         this.userId = userId;
     }
+
+
+    public String execute() throws Exception {
+        JSONObject result = new JSONObject();
+        boolean flag = BookingDao.validatePerson(userName, gooff);
+        if (flag) {
+            System.out.println("true action");
+            result.put("exist", true);
+
+        } else {
+            System.out.println("false action");
+            result.put("exist", false);
+        }
+        ResponseUtil.write(ServletActionContext.getResponse(), result);
+        return null;
+    }
+
 }

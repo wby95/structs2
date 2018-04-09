@@ -9,7 +9,23 @@
     <!-- 定义常量 -->
     <constant name="struts.i18n.encoding" value="UTF-8"/>
   	<package name="default" extends="struts-default" namespace="/">
-		<action name="personAction" class="com.wby.action.PersonAction">
+
+		<!-- 定义登录拦截器 -->
+		<interceptors>
+			<interceptor name="loginInterceptor" class="interceptor.LoginInterceptor"/>
+		</interceptors>
+
+		<action name="loginAction" class="com.wby.action.LoginAction" >
+			<result name="success">/buy.jsp</result>
+			<result name="input">/index.jsp</result>
+
+		</action>
+		<action name="regAction" class="com.wby.action.LoginAction" method="register" >
+			<result name="success">/buy.jsp</result>
+			<result name="input">/index.jsp</result>
+
+		</action>
+		<action name="personAction" class="com.wby.action.BookingAction">
 
 		</action>
 		<action name="doBuyAction" class="com.wby.action.BuyAction">
